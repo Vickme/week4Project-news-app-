@@ -128,7 +128,12 @@ const fetchTechnologyNews= async ()=> {
 }
 
 const fetchQueryNews= async ()=> {
-    const response = await fetch(SEARCH_NEWS+newsQuery.value+"&apiKey=" + API_KEY);
+      
+          if(newsQuery.value== null)
+          return;
+
+
+    const response = await fetch(SEARCH_NEWS+encodeURIComponent(newsQuery.value)+"&apiKey=" + API_KEY);
     newsDataArr =[];
     if(response.status >=200 && response.status < 300) {
         const myJson =await response.json();
@@ -142,5 +147,28 @@ const fetchQueryNews= async ()=> {
 }
 
 
+function displayNews(){
+       newsdetails.innerHTML= "";
+
+    if(newsDataArr.length==0){
+        newsdetails.innerHTML="<h5>No data found.</h5>"
+        return;
+    }
+    
+    newsDataArr.forEach(news=>{
+        var col = document.createElement('div');
+        col.className ="col-sm-12 col-md-4 col-lg-3 p-2 card";
+
+        var card= document.createElement('div');
+        card.className= "p-2";
+
+        var image= document.createElement('img');
+        image.setAttribute("height", "matchparnt");
+        image.setAttribute("width", "100%");
+        image.src=news.urlToImage;
+
+    
+    })
+}
 
  
