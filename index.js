@@ -6,11 +6,6 @@ const fetchNews=async (page,q)=>{
           'q='+ q +
           'apiKey=3f123e3f023043158b150d7dec4ec715';
 var req = new Request(url);
-
-// let a= await fetch(req)
-// let response= await a.json()
-// console.log(JSON.stringify(response))
-
     
     let response = {
         "status": "ok",
