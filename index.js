@@ -1,14 +1,16 @@
-const fetchNews=async (page)=>{
+const fetchNews=async (page,q)=>{
 
-    console.log("fetching news...");
+    console.log(`fetching news for${q}, page number${page}...`);
     var url = 'https://newsapi.org/v2/top-headlines?' +
           'country=us&' +
+          'q='+ q +
           'apiKey=3f123e3f023043158b150d7dec4ec715';
 var req = new Request(url);
 
 // let a= await fetch(req)
-//     let response = await a.json()
-//         console.log(JSON.stringify(response))
+// let response= await a.json()
+// console.log(JSON.stringify(response))
+
     
     let response = {
         "status": "ok",
@@ -295,4 +297,9 @@ document.querySelector(".Content").innerHTML = str
           
 }
 
-fetchNews(1)
+fetchNews(1, "Sports")
+search.addEventListener("click", (e)=>{
+    e.preventDefault()
+    let query= searchInput.value;
+    fetchNews(1, query)
+})
