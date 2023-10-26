@@ -1,3 +1,5 @@
+let currentQuery="Sports"
+let currentPage= 1;
 const fetchNews=async (page,q)=>{
 
     console.log(`fetching news for${q}, page number${page}...`);
@@ -273,7 +275,6 @@ var req = new Request(url);
             }
         ]
     }
-console.log(response)
 let str = ""
 resultCount.innerHTML= response.totalResults
 for (let item of response.articles){
@@ -296,5 +297,7 @@ fetchNews(1, "Sports")
 search.addEventListener("click", (e)=>{
     e.preventDefault()
     let query= searchInput.value;
+    currentQuery= query
     fetchNews(1, query)
 })
+
