@@ -53,3 +53,12 @@ prev.addEventListener("click", (e) => {
 })
 
 
+next.addEventListener("click", (e) => {
+    e.preventDefault()
+    if ( currentPage > 1){
+        currentPage= currentPage + 1
+        fetchNews( currentPage, currentQuery)
+    }
+    
+})
+
