@@ -7,6 +7,7 @@ const fetchNews = async (page, q) => {
         'q=' +q+
         '&pageSize=20&' +
         'language=en&' +
+        'page=2' +
         'page=' +page+
         '&sortBy=popularity&' +
         'apiKey=3f123e3f023043158b150d7dec4ec715';
@@ -45,17 +46,17 @@ search.addEventListener("click", (e) => {
 
 prev.addEventListener("click", (e) => {
     e.preventDefault()
-    if ( currentPage> 1){
-        currentPage=  currentPage - 1
-        fetchNews( currentPage , currentQuery)
+    if ( currentPage > 1){
+        currentPage= currentPage - 1
+        fetchNews( currentPage, currentQuery)
     }
 })
 
 next.addEventListener("click", (e) => {
     e.preventDefault()
     if ( currentPage > 1){
-        currentPage=  currentPage + 1
-        fetchNews( currentPage , currentQuery)
+        currentPage= currentPage + 1
+        fetchNews( currentPage, currentQuery)
     }
     
 })
