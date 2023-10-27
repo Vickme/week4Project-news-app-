@@ -1,5 +1,6 @@
 let currentQuery= "Technology"
 let currentPage= 1;
+let postsPerPage= 10;
 const fetchNews = async (page, q) => {
 
     var url = 'https://newsapi.org/v2/everything?' +
@@ -58,3 +59,5 @@ next.addEventListener("click", (e) => {
     }
     
 })
+
+
